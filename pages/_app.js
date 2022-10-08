@@ -1,13 +1,11 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
-
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Gemunu Libre', sans-serif;
 }
 
 a {
@@ -18,14 +16,15 @@ a {
 * {
   box-sizing: border-box;
 }
-`
+`;
 
 function MyApp({ Component, pageProps }) {
   return (
-  <>
-    <GlobalStyle />
-    <Component {...pageProps} />
-  </>)
+    <>
+      <GlobalStyle />
+      <Component {...pageProps} />
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;

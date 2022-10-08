@@ -1,8 +1,14 @@
 import styled from "styled-components";
 
 export const Nav = styled.nav`
-  background-color: #000;
-  padding: 0.5rem;
+  background: rgb(3, 17, 83);
+  background: linear-gradient(
+    90deg,
+    rgba(3, 17, 83, 1) 0%,
+    rgba(2, 38, 116, 1) 23%,
+    rgba(0, 125, 255, 1) 100%
+  );
+  padding: 1rem;
 
   display: flex;
   justify-content: space-between;
@@ -10,12 +16,13 @@ export const Nav = styled.nav`
 `;
 
 export const Button = styled.button`
+  font-family: "Gemunu Libre", sans-serif;
   display: inline-block;
-  padding: 0.5rem .75rem;
-  margin: 0 .5rem;
+  padding: 0.5rem 0.5rem;
+  margin: 0 0.25rem;
   text-transform: uppercase;
-  font-size: 1.1rem;
-  font-weight: 400;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: #fff;
   border: none;
   background: transparent;
@@ -43,6 +50,7 @@ export const Button = styled.button`
     width: 0%;
     height: 100%;
     background-color: #ec1d24;
+    opacity: .85;
     transition: all 0.2s;
     z-index: -1;
   }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Wrapper } from "./styles";
+import { Content, Wrapper } from "./styles";
 
 import Head from "next/head";
 import Header from "../Header/Header";
@@ -12,12 +12,22 @@ const Layout = ({ title, children }) => {
           {title ? `${title} - Marvel HQ's Ecommerce` : "Marvel HQ's Ecommerce"}
         </title>
         <meta name="description" content="Marvel HQ's Ecommerce Website" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200;300;500;700&display=swap"
+          rel="stylesheet"
+        ></link>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Wrapper>
-        <header><Header></Header></header>
-        <main>{children}</main>
+        <header>
+          <Header />
+        </header>
+
+        <main>
+          <Content>{children}</Content>
+        </main>
+
         <footer>footer</footer>
       </Wrapper>
     </>
