@@ -8,52 +8,27 @@ import {
   ProductPrice,
 } from "./styles";
 
-const ComicCard = () => {
+const ComicCard = ({ comic }) => {
   return (
     <>
-      <ProductCard>
-        <ProductImage>
-          <img src="/images/hq1.jpg" alt="HQ1" width="100%" />
-        </ProductImage>
-        <ProductInfos>
-          <ProductName>Avengers #63</ProductName>
-          <ProductPrice>$5.00</ProductPrice>
+      {comic.prices[0].price !== 0 ? (
+        <ProductCard>
+          <ProductImage>
+            <img
+              src={`${comic.thumbnail.path}/standard_fantastic.${comic.thumbnail.extension}`}
+              alt={comic.title}
+              width="100%"
+            />
+          </ProductImage>
+          <ProductInfos>
+            <ProductName>{comic.title}</ProductName>
+            <ProductPrice>${comic.prices[0].price.toFixed(2)}</ProductPrice>
+          </ProductInfos>
           <ProductAdd>Add to Cart</ProductAdd>
-        </ProductInfos>
-      </ProductCard>
-
-      <ProductCard>
-        <ProductImage>
-          <img src="/images/hq2.jpg" alt="HQ2" width="100%" />
-        </ProductImage>
-        <ProductInfos>
-          <ProductName>Avengers #62</ProductName>
-          <ProductPrice>$7.50</ProductPrice>
-          <ProductAdd>Add to Cart</ProductAdd>
-        </ProductInfos>
-      </ProductCard>
-
-      <ProductCard>
-        <ProductImage>
-          <img src="/images/hq5.jpg" alt="HQ5" width="100%" />
-        </ProductImage>
-        <ProductInfos>
-          <ProductName>Avengers #61</ProductName>
-          <ProductPrice>$10.00</ProductPrice>
-          <ProductAdd>Add to Cart</ProductAdd>
-        </ProductInfos>
-      </ProductCard>
-
-      <ProductCard>
-        <ProductImage>
-          <img src="/images/hq4.jpg" alt="HQ4" width="100%" />
-        </ProductImage>
-        <ProductInfos>
-          <ProductName>Avengers #60</ProductName>
-          <ProductPrice>$12.50</ProductPrice>
-          <ProductAdd>Add to Cart</ProductAdd>
-        </ProductInfos>
-      </ProductCard>
+        </ProductCard>
+      ) : (
+        ""
+      )}
     </>
   );
 };
