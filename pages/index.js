@@ -35,15 +35,19 @@ export default function CharactersList() {
     <Layout>
       <ComicsList>
         {comics.length > 0
-          ? comics.map((comic) => (
-              <ComicCard
-                id={comic.id}
-                title={comic.title}
-                image={`${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension}`}
-                price={`${comic.prices[0].price.toFixed(2)}`}
-                key={comic.id}
-              />
-            ))
+          ? comics.map((comic) =>
+              comic.prices[0].price !== 0 ? (
+                <ComicCard
+                  id={comic.id}
+                  title={comic.title}
+                  image={`${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension}`}
+                  price={`${comic.prices[0].price.toFixed(2)}`}
+                  key={comic.id}
+                />
+              ) : (
+                ""
+              )
+            )
           : ""}
       </ComicsList>
     </Layout>
