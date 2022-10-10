@@ -2,7 +2,7 @@ import React from "react";
 import { Wrapper } from "./styles";
 
 import Head from "next/head";
-import Header from "../Header/Header";
+import Header from "../Header";
 
 const Layout = ({ title, children }) => {
   return (
