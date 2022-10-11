@@ -10,3 +10,9 @@ export const timeStamp = Date.now();
 export const hash = md5(timeStamp + privateKey + publicKey);
 
 export const MARVEL_API_KEY = `ts=${timeStamp}&apikey=${publicKey}&hash=${hash}`;
+
+const api = axios.create({
+  baseURL: BASE_URL,
+});
+
+export default api;

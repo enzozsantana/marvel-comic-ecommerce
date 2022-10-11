@@ -54,6 +54,7 @@ export const ProductAdd = styled.button`
   text-align: center;
   font-size: 1.125rem;
   padding: 0.5rem;
+  transform: scale(1, 1);
   transition: all 0.5s;
   cursor: pointer;
   margin-bottom: .75rem;

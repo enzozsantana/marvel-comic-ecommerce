@@ -1,10 +1,14 @@
-import GlobalStyle from '../styles/global'
+import React from "react";
+import GlobalStyle from "../styles/global";
+import { ComicProvider } from "../contexts/ComicContext";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <GlobalStyle />
-      <Component {...pageProps} />
+      <ComicProvider>
+          <GlobalStyle />
+          <Component {...pageProps} />
+      </ComicProvider>
     </>
   );
 }

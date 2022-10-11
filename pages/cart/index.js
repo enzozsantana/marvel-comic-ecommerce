@@ -1,7 +1,25 @@
-import React from 'react'
+import React, { Component, useState } from "react";
+import { useCart } from "../../contexts/CartContext";
 
-export default function index() {
+function CartPage() {
+  const {
+    cartItems,
+    totalPrice,
+    totalItems,
+    coupon,
+    isUsingCoupon,
+    alterProductAmount,
+    deleteProduct,
+    addCoupon,
+  } = useCart();
+
+  console.log()
+
   return (
-    <div>index</div>
-  )
+    <>
+        Preço: {cartItems.lenght}
+    </>
+  );
 }
+
+export default CartPage;

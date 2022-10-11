@@ -1,35 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { BASE_URL, MARVEL_API_KEY } from "../services/api";
-import Layout from "../components/Layout";
 import { ComicsList } from "../styles/styles";
 import ComicCard from "../components/ComicCard";
-import axios from "axios";
+import { useComic } from "../contexts/ComicContext";
+import Layout from "../components/Layout";
 
-export default function CharactersList() {
-  const limit = 20;
-
-  const [comics, setComics] = useState([]);
-  const [requestInfo, setRequestInfo] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [offset, setOffset] = useState(0);
+export default function CharactersList({ data }) {
+  const { comics, loadComics, isLoading } = useComic();
 
   useEffect(() => {
-    setIsLoading(true);
-
-    axios
-      .get(
-        `${BASE_URL}comics?formatType=comic&limit=${limit}&offset=${offset}&${MARVEL_API_KEY}`
-      )
-      .then((response) => {
-        setRequestInfo(response.data.data);
-        setComics(response.data.data.results);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        setIsLoading(true);
-        console.error(error);
-      });
-  }, [offset]);
+    loadComics(data);
+  });
 
   return (
     <Layout>
@@ -53,3 +33,4 @@ export default function CharactersList() {
     </Layout>
   );
 }
+
