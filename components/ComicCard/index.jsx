@@ -19,7 +19,7 @@ const ComicCard = ({ image, id, title, price }) => {
       <ProductAdd>
         <span>
           <FaCartPlus />
-        </span>{" "}
+        </span>
         ${price}
       </ProductAdd>
     </>

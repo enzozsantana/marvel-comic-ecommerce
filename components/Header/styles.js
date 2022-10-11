@@ -17,12 +17,24 @@ export const Nav = styled.nav`
 
 export const Buttons = styled.div`
   display: flex;
-  gap: .5rem;
-`
+  gap: 0.5rem;
+`;
 
 export const Button = styled.button`
   background: transparent;
   border: none;
   color: #f2f2f2;
-  font-size: 1.75rem;
+  font-size: 2rem;
+`;
+
+export const CartProductsNumber = styled.span`
+  position: absolute;
+  background-color: #f02d34;
+  color: #f2f2f2;
+  text-align: center;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  font-wieght: 0.7rem;
+  right: 1rem;
 `;

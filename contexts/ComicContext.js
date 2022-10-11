@@ -1,32 +1,21 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import api, { MARVEL_API_KEY } from "../services/api";
+//import data from "../utils/data"; //dados mockados
 
 const ComicContext = createContext();
 
 export function ComicProvider({ children }) {
   const [comics, setComics] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [offset, setOffset] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
-  function loadComics() {
-    const limit = 20;
-
-    setIsLoading(true);
-
-    api
-    .get(
-      `comics?formatType=comic&limit=${limit}&offset=${offset}&${MARVEL_API_KEY}`
-    )
-    .then((response) => {
-      setComics(response.data.data.results);
-      setIsLoading(false);
-    })
-    .catch((error) => {
-      console.error(error);
-      setIsLoading(true);
-    });
+  function loadComics(value) {
+    setComics(value)
 
     return comics;
+  }
+
+  function updateIsLoadingState(value) {
+    setIsLoading(value);
   }
 
   function selectAComic(id) {
@@ -40,6 +29,7 @@ export function ComicProvider({ children }) {
         comics,
         isLoading,
         loadComics,
+        updateIsLoadingState,
         selectAComic,
       }}
     >

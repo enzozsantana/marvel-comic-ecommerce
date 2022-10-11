@@ -1,11 +1,15 @@
-import React from "react";
-import { Button, Buttons, Nav } from "./styles";
-import { FaHome, FaShoppingCart } from "react-icons/fa";
+import React, { useContext } from "react";
+import { Button, Buttons, Nav, CartProductsNumber } from "./styles";
+import { AiOutlineHome, AiOutlineShopping} from "react-icons/ai"
 
 import Link from "next/link";
 import Image from "next/image";
+import { CartContext } from "../../contexts/CartContext";
 
 const Header = () => {
+  const { state, dispatch } = useContext(CartContext)
+  const { cart } = state
+
   return (
     <div>
       <Nav>
@@ -22,14 +26,19 @@ const Header = () => {
         <div>
           <Buttons>
             <Link href="/">
-              <Button>
-                <FaHome />
-              </Button>
+              <a>
+                <Button>
+                  <AiOutlineHome />
+                </Button>
+              </a>
             </Link>
             <Link href="/cart">
-              <Button>
-                <FaShoppingCart />
-              </Button>
+              <a>
+                <Button>
+                  <AiOutlineShopping />
+                </Button>
+                <CartProductsNumber>{cart.cartItems.reduce((a, c) => a + c.quantity, 0)}</CartProductsNumber>
+              </a>
             </Link>
           </Buttons>
         </div>
