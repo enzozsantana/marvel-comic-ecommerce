@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
 import { Button, Buttons, Nav, CartProductsNumber } from "./styles";
-import { AiOutlineHome, AiOutlineShopping} from "react-icons/ai"
+import { AiOutlineHome, AiOutlineShopping } from "react-icons/ai";
 
 import Link from "next/link";
 import Image from "next/image";
-import { CartContext } from "../../contexts/CartContext";
+import { useCart } from "../../contexts/CartContext";
 
 const Header = () => {
-  const { state, dispatch } = useContext(CartContext)
-  const { cart } = state
+  const { cartItems, totalItems } = useCart();
 
   return (
     <div>
@@ -37,7 +36,9 @@ const Header = () => {
                 <Button>
                   <AiOutlineShopping />
                 </Button>
-                <CartProductsNumber>{cart.cartItems.reduce((a, c) => a + c.quantity, 0)}</CartProductsNumber>
+                <CartProductsNumber>
+                  {totalItems}
+                </CartProductsNumber>
               </a>
             </Link>
           </Buttons>

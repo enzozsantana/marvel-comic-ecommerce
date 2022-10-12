@@ -40,7 +40,6 @@ export const ProductAdd = styled.button`
   align-items: center;
   justify-content: center;
   gap: 1rem;
-
   font-family: 'Gemunu Libre', sans-serif;
   background: rgb(147, 0, 10);
   background: linear-gradient(

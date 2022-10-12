@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Layout from "../../components/Layout";
 import {
@@ -15,28 +15,25 @@ import {
 import { FaCartPlus } from "react-icons/fa";
 import { useComic } from "../../contexts/ComicContext";
 import Spinner from "../../components/Spinner";
-import { CartContext} from "../../contexts/CartContext"
+import { useCart } from "../../contexts/CartContext";
 
 export default function ComicDetailsPage() {
-  const { state, dispatch } = useContext(CartContext);
-
   const { selectAComic } = useComic();
-
+  const { addProductToCart } = useCart();
   const [comic, setComic] = useState();
 
   const router = useRouter();
+
+ function handleAddCart() {
+    addProductToCart({ ...comic, amount: 1 });
+  }
 
   useEffect(() => {
     const { id } = router.query;
 
     setComic(() => selectAComic(Number(id)));
-  });
+  },[]);
 
-  function addToCartHandler(){
-    const existItem = state.cart.cartItems.find((x) => x.id === comic.id)
-    const quantity = existItem ? existItem.quantity + 1 : 1;
-    dispatch({ type: 'CART_ADD_ITEM', payload: { ...comic, quantity}})};
-    
   return (
     <>
       <Layout>
@@ -70,7 +67,7 @@ export default function ComicDetailsPage() {
                 " "
               )}
             </ComicInfos>
-            <ProductAdd onClick={_ => addToCartHandler()}>
+            <ProductAdd comic={comic} onClick={handleAddCart}>
               <span>
                 <FaCartPlus />
               </span>{" "}

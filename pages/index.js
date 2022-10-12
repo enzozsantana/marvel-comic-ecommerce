@@ -5,6 +5,7 @@ import { useComic } from "../contexts/ComicContext";
 import Layout from "../components/Layout";
 import api, { MARVEL_API_KEY } from "../services/api";
 
+
 export default function Home({ data }) {
   const { comics, loadComics, updateIsLoadingState } = useComic();
 
@@ -19,13 +20,7 @@ export default function Home({ data }) {
         {comics.length > 0
           ? comics.map((comic) =>
               comic.prices[0].price !== 0 ? (
-                <ComicCard
-                  id={comic.id}
-                  title={comic.title}
-                  image={`${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension}`}
-                  price={`${comic.prices[0].price.toFixed(2)}`}
-                  key={comic.id}
-                />
+                <ComicCard comic={comic} key={comic.id} />
               ) : (
                 ""
               )

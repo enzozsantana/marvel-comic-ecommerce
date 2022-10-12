@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const ComicDetailed = styled.div`
+position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,6 +12,17 @@ export const ComicDetailed = styled.div`
   width: 100%;
   min-height: 90vh;
 `;
+
+export const BackButton = styled.button`
+  color: #f2f2f2;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  
+  position: absolute;
+  left: 5px;
+  top: 10px;
+`
 
 export const ComicImage = styled.img`
   margin: 0 1rem;
@@ -23,7 +35,7 @@ export const ComicInfos = styled.div`
 
 export const ComicName = styled.h1`
   font-size: 1.9rem;
-  margin: 1.5rem 1rem;
+  margin: 2.5rem 1rem 1.5rem 1rem;
 `;
 
 export const ComicText = styled.p`
