@@ -70,9 +70,8 @@ export const ProductRow = styled.div`
 export const ProductPrice = styled.div`
   font-size: 1.4rem;
   font-weight: 300;
-  
-  margin-bottom: .2rem;
   color: #f02d34;
+  margin-bottom: .2rem;
 `;
 
 export const ProductInfos = styled.div`
@@ -175,3 +174,14 @@ export const CouponDiscountValue = styled.div`
   margin: 1rem 1.5rem;
   color: #4444EE;
 `;
+
+export const BuyButton = styled.button`
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  background-color: #101010;
+  color: #FFF;
+  font-size: 1.2rem;
+  border: none;
+  width: 70vw;
+  height: 2.2rem;
+  margin: 0 auto;
+`

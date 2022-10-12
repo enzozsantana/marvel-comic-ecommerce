@@ -7,7 +7,7 @@ const ComicContext = createContext();
 export function ComicProvider({ children }) {
   const [comics, setComics] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  
   function loadComics(value) {
     setComics(value)
 

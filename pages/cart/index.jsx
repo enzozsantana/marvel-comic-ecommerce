@@ -26,6 +26,7 @@ import {
   Totals,
   TotalsInfos,
   CouponDiscountValue,
+  BuyButton,
 } from "./styles";
 import { useCart } from "../../contexts/CartContext";
 import Layout from "../../components/Layout";
@@ -121,84 +122,11 @@ function CartPage() {
                 <TotalsInfos>{(totalPrice * 0.9).toFixed(2)}</TotalsInfos>
               </Totals>
             </CoupounsAndTotalWrapper>
+            <BuyButton>Buy</BuyButton>
           </CartItems>
         )}
       </Cart>
     </Layout>
   );
-
-  // return (
-  //   <Layout>
-  //     <Cart>
-  //       <Title>My Cart</Title>
-  //       {cartItems.length === 0 ? (
-  //         <p>Carrinho vazio</p>
-  //       ) : (
-  //         <CartItems>
-  //           {cartItems.map((item) => (
-  //             <>
-  //               <CartItem key={item.id}>
-  //                 <ProductImage
-  //                   src={`${item.thumbnail.path}/portrait_medium.${item.thumbnail.extension}`}
-  //                   alt={item.title}
-  //                 />
-  //                 <ProductInfosWrapper>
-  //                   <ProductInfos>
-  //                     <ProductTitle>{item.title}</ProductTitle>
-  //                     <DeleteIcon onClick={() => deleteProduct(item.id)}>
-  //                       <AiOutlineDelete />
-  //                     </DeleteIcon>
-  //                   </ProductInfos>
-  //                   <ProductAmountWrapper>
-  //                     <Icon
-  //                       onClick={() => alterProductAmount("decrease", item.id)}
-  //                     >
-  //                       <GoDiffRemoved />
-  //                     </Icon>
-  //                     <ProductAmount>{item.amount}</ProductAmount>
-  //                     <Icon
-  //                       onClick={() => alterProductAmount("increase", item.id)}
-  //                     >
-  //                       <GoDiffAdded />
-  //                     </Icon>
-  // <ProductPrice>
-  //   ${(item.prices[0].price * item.amount).toFixed(2)}
-  // </ProductPrice>
-  //                   </ProductAmountWrapper>
-  //                 </ProductInfosWrapper>
-  //               </CartItem>
-  //             </>
-  //           ))}
-  //           <HorizontalRow />
-  //           <CoupounsAndTotalWrapper>
-  //             <CouponTitle>Promo Code</CouponTitle>
-  //             <CouponRow>
-  //               <CouponInput type="text" placeholder="Enter Promo Code" />
-  // <CouponAddButton>
-  //   <SiAddthis />
-  // </CouponAddButton>
-  //             </CouponRow>
-  //             <Totals>
-  // <TotalsInfos>Amount</TotalsInfos>
-  // <TotalsInfos>${totalPrice.toFixed(2)}</TotalsInfos>
-  //             </Totals>
-  // <Totals>
-  //   <TotalsInfos>Promo Code</TotalsInfos>
-  //   <CouponDiscountValue>
-  //     -{(totalPrice * 0.1).toFixed(2)}
-  //   </CouponDiscountValue>
-  // </Totals>
-              // <HorizontalRow />
-              // <Totals>
-              //   <TotalsInfos>Total</TotalsInfos>
-              //   <TotalsInfos>{(totalPrice * 0.9).toFixed(2)}</TotalsInfos>
-              // </Totals>
-  //           </CoupounsAndTotalWrapper>
-  //         </CartItems>
-  //       )}
-  //     </Cart>
-  //   </Layout>
-  // );
 }
-
 export default CartPage;
