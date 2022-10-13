@@ -6,6 +6,7 @@ import {
   ProductImage,
   ProductName,
   ProductInfos,
+  Icon
 } from "./styles";
 import { FaCartPlus } from "react-icons/fa";
 import { useCart } from "../../contexts/CartContext";
@@ -36,9 +37,9 @@ const ComicCard = ({ comic }) => {
           )}
           {console.log(comic)}
           <ProductAdd onClick={handleAddCart}>
-            <span>
+            <Icon>
               <FaCartPlus />
-            </span>
+            </Icon>
             ${`${comic.prices[0].price.toFixed(2)}`}
           </ProductAdd>
         </ProductInfos>

@@ -15,6 +15,8 @@ export const Wrapper = styled.div`
   justify-content: center;
   gap: 1rem;
 
+  height: 10vh;
+
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     gap: 1.5rem;

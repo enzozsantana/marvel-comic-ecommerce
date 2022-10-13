@@ -7,6 +7,8 @@ export const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  height: 10vh;
 `;
 
 export const MarvelLogo = styled.img`
@@ -30,10 +32,6 @@ export const Button = styled.button`
   color: #f2f2f2;
   font-size: 2rem;
   cursor: pointer;
-
-  @media only screen and (min-width: 768px) {
-    font-size: 3rem;
-  }
 `;
 
 export const CartProductsNumber = styled.span`
@@ -48,13 +46,21 @@ export const CartProductsNumber = styled.span`
   right: 1rem;
 
   @media only screen and (min-width: 768px) {
-    width: 28px;
-    height: 28px;
+    width: 22px;
+    height: 22px;
     font-size: 1.2rem;
 
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 11px;
+    
+    top: 1.6rem;
+    right: .9rem;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 1.1rem;
+    right: .7rem;
+    top: .9rem;
   }
 `;

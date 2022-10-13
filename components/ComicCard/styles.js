@@ -79,6 +79,9 @@ export const ProductAdd = styled.button`
 
   @media only screen and (min-width: 768px) {
     width: 8.5rem;
-    gap: 2rem;
   }
 `;
+
+export const Icon = styled.div`
+  padding-top: .2rem;
+`
