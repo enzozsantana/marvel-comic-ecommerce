@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   width: 100%;
   min-height: 100vh;
+  margin: 0;
+  padding:0;
   background: #eaeaea; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,

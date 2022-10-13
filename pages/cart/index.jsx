@@ -5,6 +5,7 @@ import { SiAddthis } from "react-icons/si";
 import {
   Cart,
   Title,
+  CartWrapper,
   CartItem,
   CartItems,
   ProductImage,
@@ -27,10 +28,10 @@ import {
   TotalsInfos,
   CouponDiscountValue,
   BuyButton,
+  CartBanner,
 } from "./styles";
 import { useCart } from "../../contexts/CartContext";
 import Layout from "../../components/Layout";
-import Footer from "../../components/Footer";
 
 function CartPage() {
   const {
@@ -52,11 +53,9 @@ function CartPage() {
 
   return (
     <Layout>
+      <CartBanner src="/images/cart-banner.png" />
       <Cart>
-        <Title>MY CART</Title>
-        {cartItems.lenght === 0 ? (
-          <p>carrinho vazio!</p>
-        ) : (
+        <CartWrapper>
           <CartItems>
             {cartItems.map((item) => (
               <>
@@ -67,7 +66,13 @@ function CartPage() {
                   />
                   <ProductInfosWrapper>
                     <ProductInfos>
-                      <ProductTitle>{item.title}</ProductTitle>
+                      {item.title.length >= 30 ? (
+                        <ProductTitle>
+                          {item.title.substr(0, 30)}...
+                        </ProductTitle>
+                      ) : (
+                        <ProductTitle>{item.title}</ProductTitle>
+                      )}
                       <DeleteIcon onClick={() => deleteProduct(item.id)}>
                         <AiOutlineDelete />
                       </DeleteIcon>
@@ -98,34 +103,34 @@ function CartPage() {
                 </CartItem>
               </>
             ))}
-            <HorizontalRow />
-            <CoupounsAndTotalWrapper>
-              <CouponTitle>Promo Code</CouponTitle>
-              <CouponRow>
-                <CouponInput type="text" placeholder="Enter Promo Code" />
-                <CouponAddButton>
-                  <SiAddthis />
-                </CouponAddButton>
-              </CouponRow>
-              <Totals>
-                <TotalsInfos>Amount</TotalsInfos>
-                <TotalsInfos>${totalPrice.toFixed(2)}</TotalsInfos>
-              </Totals>
-              <Totals>
-                <TotalsInfos>Promo Code</TotalsInfos>
-                <CouponDiscountValue>
-                  -{(totalPrice * 0.1).toFixed(2)}
-                </CouponDiscountValue>
-              </Totals>
-              <HorizontalRow />
-              <Totals>
-                <TotalsInfos>Total</TotalsInfos>
-                <TotalsInfos>{(totalPrice * 0.9).toFixed(2)}</TotalsInfos>
-              </Totals>
-            </CoupounsAndTotalWrapper>
-            <BuyButton>Buy</BuyButton>
           </CartItems>
-        )}
+          <CoupounsAndTotalWrapper>
+            <CouponTitle>Promo Code</CouponTitle>
+            <CouponRow>
+              <CouponInput type="text" placeholder="Enter Promo Code" />
+              <CouponAddButton>
+                <SiAddthis />
+              </CouponAddButton>
+            </CouponRow>
+            <Totals>
+              <TotalsInfos>Amount</TotalsInfos>
+              <TotalsInfos>${totalPrice.toFixed(2)}</TotalsInfos>
+            </Totals>
+            <Totals>
+              <TotalsInfos>Promo Code</TotalsInfos>
+              <CouponDiscountValue>
+                -{(totalPrice * 0.1).toFixed(2)}
+              </CouponDiscountValue>
+            </Totals>
+            <HorizontalRow />
+            <Totals>
+              <TotalsInfos>Total</TotalsInfos>
+              <TotalsInfos>{(totalPrice * 0.9).toFixed(2)}</TotalsInfos>
+            </Totals>
+            <BuyButton>Buy</BuyButton>
+          </CoupounsAndTotalWrapper>
+        </CartWrapper>
+        
       </Cart>
     </Layout>
   );

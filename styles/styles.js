@@ -6,7 +6,7 @@ export const Banner = styled.img`
   height: 131px;
 
   @media only screen and (min-width: 768px) {
-    height: 273px;
+    height: 223px;
   }
 `
 

@@ -39,7 +39,7 @@ export default function Home({ data }) {
         <Spinner />
       ) : (
         <>
-          <Banner src="/images/banner.png" />
+          <Banner src="/images/home-banner.png" />
           <ComicsList>
             {comics.length > 0
               ? comics.map((comic) =>
