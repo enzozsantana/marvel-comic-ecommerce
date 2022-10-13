@@ -9,7 +9,6 @@ const ComicCard = ({ comic }) => {
 
   function handleAddCart() {
     addProductToCart({ ...comic, amount: 1 });
-    //router.push('/carrinho');
   }
 
   return (
