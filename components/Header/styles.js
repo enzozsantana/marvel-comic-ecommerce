@@ -25,6 +25,7 @@ export const Button = styled.button`
   border: none;
   color: #f2f2f2;
   font-size: 2rem;
+  cursor: pointer;
 `;
 
 export const CartProductsNumber = styled.span`

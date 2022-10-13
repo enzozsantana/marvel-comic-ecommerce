@@ -23,13 +23,15 @@ export const ProductCard = styled.div`
 export const ProductImage = styled.img`
   transform: scale(1, 1);
   transition: transform 0.5s ease-in-out;
+  margin-top: 1rem;
 
   width: 100%;
 `;
 
 export const ProductName = styled.h2`
-  font-weight: 700;
+  font-weight: 400;
   font-size: 1.2rem;
+  text-transform: uppercase;
   max-width: 216px;
   text-align: center;
 `;

@@ -6,6 +6,8 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Gemunu Libre', sans-serif;
+  font-weight: 300,
+  text-transform: uppercase;
 }
 
 a {

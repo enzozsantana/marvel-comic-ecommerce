@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { ComicsList } from "../styles/styles";
+import { ComicsList, Banner } from "../styles/styles";
 import ComicCard from "../components/ComicCard";
 import Layout from "../components/Layout";
 import api, { MARVEL_API_KEY } from "../services/api";
-// import ReactPaginate from "react-paginate";
-// import Router, { withRouter } from 'next/router'
 import Pagination from "../components/Pagination/index";
+import Spinner from "../components/Spinner";
 
 const limit = 20;
 
@@ -36,7 +35,7 @@ export default function Home({ data }) {
   return (
     <Layout>
       {isLoading ? (
-        <div>Is loading...</div>
+        <Spinner/>
       ) : (
         <>
           <ComicsList>
