@@ -11,9 +11,9 @@ export const Wrapper = styled.div`
   padding: 1rem;
 
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  gap: 1rem;
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
@@ -28,12 +28,12 @@ export const Wrapper = styled.div`
 `;
 
 export const Logo = styled.img`
-    width: 5rem;
+    width: 4rem;
 `
 
 export const Credits = styled.p`
     color: #f2f2f2;
-    font-size: 1rem;
+    font-size: .8rem;
     text-transform: uppercase;
 
     @media only screen and (min-width: 768px) {

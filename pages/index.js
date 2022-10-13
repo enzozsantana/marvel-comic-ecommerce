@@ -20,7 +20,7 @@ export default function Home({ data }) {
 
     api
       .get(
-        `comics?formatType=comic&limit=${limit}&offset=${offset}&${MARVEL_API_KEY}`
+        `comics?formatType=comic&noVariants=true&formatType=comic&dateRange=%202010-01-01%2C2022-10-08&limit=${limit}&offset=${offset}&${MARVEL_API_KEY}`
       )
       .then((response) => {
         setRequestInfo(response.data.data);

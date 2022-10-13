@@ -1,16 +1,27 @@
 import styled from "styled-components";
 
+export const ComicWrapper = styled.div`
+  background: #000000 url(/images/fundo-quadrinhos-marvel.jpg) center center/cover no-repeat;
+  color: #f2f2f2;
+  width: 100%;
+  height: auto;
+`;
+
 export const ComicDetailed = styled.div`
-position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
 
   text-align: center;
-  background-color: #000;
-  color: #f2f2f2;
+  background: rgba(0, 0, 0, 0.86);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
   width: 100%;
-  min-height: 90vh;
+  height: auto;
+  min-height: 80vh;
+  text-transform: uppercase;
 `;
 
 export const BackButton = styled.button`
@@ -18,19 +29,21 @@ export const BackButton = styled.button`
   background: transparent;
   border: none;
   font-size: 1.5rem;
-  
+
   position: absolute;
   left: 5px;
   top: 10px;
-`
+`;
 
 export const ComicImage = styled.img`
   margin: 0 1rem;
+  margin-bottom: 1rem;
 `;
 
 export const ComicInfos = styled.div`
   width: 90%;
   margin-top: 1rem;
+  font-weight: 300;
 `;
 
 export const ComicName = styled.h1`
@@ -38,15 +51,17 @@ export const ComicName = styled.h1`
   margin: 2.5rem 1rem 1.5rem 1rem;
 `;
 
+export const ComicRow= styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: space-between;
+  margin: 1.2rem 0;
+`
+
 export const ComicText = styled.p`
   text-align: justify;
   margin: 0 1rem;
-`;
-
-export const Creators = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 1rem 1rem;
 `;
 
 export const ComicCreator = styled.span`
@@ -59,7 +74,7 @@ export const ComicPages = styled.p`
 `;
 
 export const ProductAdd = styled.button`
-  width: 84vw;
+  width: 29vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,8 +94,7 @@ export const ProductAdd = styled.button`
   font-size: 1.125rem;
   padding: 0.5rem;
   cursor: pointer;
-  margin: 1rem;
-  margin-top: 2.5rem;
+  margin-bottom: 1rem;
 
   &:hover {
     transform: scale(1.1, 1.1);

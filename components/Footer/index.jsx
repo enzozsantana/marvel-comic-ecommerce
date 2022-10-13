@@ -7,7 +7,7 @@ const Footer = () => {
     <div>
       <Wrapper>
         <Logo src="/images/marvel-comics-logo.png" />
-        <Credits>Data provided by Marvel. © 2014 Marvel</Credits>
+        <Credits>Data provided by Marvel. © 2022 Marvel</Credits>
       </Wrapper>
     </div>
   );

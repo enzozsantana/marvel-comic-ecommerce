@@ -10,8 +10,9 @@ import {
   ComicInfos,
   ComicName,
   ComicText,
-  Creators,
+  ComicRow,
   ProductAdd,
+  ComicWrapper,
 } from "./styles";
 
 export default function ComicDetailsPage() {
@@ -46,42 +47,40 @@ export default function ComicDetailsPage() {
     <>
       <Layout>
         {comicDetails ? (
-          <ComicDetailed>
-            <ComicName>{comicDetails.title}</ComicName>
-            <ComicImage
-              src={`${comicDetails.thumbnail.path}/portrait_incredible.${comicDetails.thumbnail.extension}`}
-              alt={comicDetails}
-            />
-            <ComicInfos>
-              {comicDetails.description ? (
-                <ComicText>{comicDetails.description}</ComicText>
-              ) : (
-                ""
-              )}
-              {comicDetails.creators.available !== 0 ? (
-                <Creators>
-                  {comicDetails.creators.items.map((item) => (
-                    <ComicText>{`${item.role} - ${item.name}`}</ComicText>
-                  ))}
-                </Creators>
-              ) : (
-                " "
-              )}
-              {comicDetails.pageCount ? (
-                <Creators>
-                  <ComicText>{comicDetails.pageCount} pages</ComicText>
-                </Creators>
-              ) : (
-                ""
-              )}
-            </ComicInfos>
-            <ProductAdd comic={comicDetails} onClick={handleAddCart}>
-              <span>
-                <FaCartPlus />
-              </span>{" "}
-              {`${comicDetails.prices[0].price.toFixed(2)}`}
-            </ProductAdd>
-          </ComicDetailed>
+          <ComicWrapper>
+            <ComicDetailed>
+              <ComicName>{comicDetails.title}</ComicName>
+              <ComicImage
+                src={`${comicDetails.thumbnail.path}/portrait_incredible.${comicDetails.thumbnail.extension}`}
+                alt={comicDetails}
+              />
+              <ComicInfos>
+                {comicDetails.description &&
+                comicDetails.description.length <= 100 ? (
+                  <ComicText>{comicDetails.description}</ComicText>
+                ) : (
+                  <ComicText>{comicDetails.description}...</ComicText>
+                )}
+                <ComicRow>
+                  {comicDetails.pageCount ? (
+                    <ComicText>{comicDetails.pageCount} pages</ComicText>
+                  ) : (
+                    ""
+                  )}
+                  {comicDetails.dates ? <ComicText>Published: {(comicDetails.dates[0].date).substr(0, 10)} </ComicText> : ''}
+                </ComicRow>
+                <ComicRow>
+                  {comicDetails.series.name ? <ComicText>Series: {comicDetails.series.name}</ComicText> : ''}
+                </ComicRow>
+              </ComicInfos>
+              <ProductAdd comic={comicDetails} onClick={handleAddCart}>
+                <span>
+                  <FaCartPlus />
+                </span>{" "}
+                {`${comicDetails.prices[0].price.toFixed(2)}`}
+              </ProductAdd>
+            </ComicDetailed>
+          </ComicWrapper>
         ) : (
           ""
         )}
@@ -89,3 +88,13 @@ export default function ComicDetailsPage() {
     </>
   );
 }
+
+// comicDetails.creators.available !== 0 ? (
+//   <ComicRow>
+//     {comicDetails.creators.items.map((item) => (
+//       <ComicText>{`${item.role} - ${item.name}`}</ComicText>
+//     ))}
+//   </ComicRow>
+// ) : (
+//   " "
+// )
