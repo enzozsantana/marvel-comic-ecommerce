@@ -67,18 +67,32 @@ export default function ComicDetailsPage() {
                   ) : (
                     ""
                   )}
-                  {comicDetails.dates ? <ComicText>Published: {(comicDetails.dates[0].date).substr(0, 10)} </ComicText> : ''}
+                  {comicDetails.dates ? (
+                    <ComicText>
+                      Published: {comicDetails.dates[0].date.substr(0, 10)}{" "}
+                    </ComicText>
+                  ) : (
+                    ""
+                  )}
                 </ComicRow>
                 <ComicRow>
-                  {comicDetails.series.name ? <ComicText>Series: {comicDetails.series.name}</ComicText> : ''}
+                  {comicDetails.series.name ? (
+                    <ComicText>Series: {comicDetails.series.name}</ComicText>
+                  ) : (
+                    ""
+                  )}
                 </ComicRow>
               </ComicInfos>
-              <ProductAdd comic={comicDetails} onClick={handleAddCart}>
-                <span>
-                  <FaCartPlus />
-                </span>{" "}
-                {`${comicDetails.prices[0].price.toFixed(2)}`}
-              </ProductAdd>
+              {comicDetails.prices[0].price !== 0 ? (
+                <ProductAdd comic={comicDetails} onClick={handleAddCart}>
+                  <span>
+                    <FaCartPlus />
+                  </span>{" "}
+                  {`${comicDetails.prices[0].price.toFixed(2)}`}
+                </ProductAdd>
+              ) : (
+                ""
+              )}
             </ComicDetailed>
           </ComicWrapper>
         ) : (
@@ -88,13 +102,3 @@ export default function ComicDetailsPage() {
     </>
   );
 }
-
-// comicDetails.creators.available !== 0 ? (
-//   <ComicRow>
-//     {comicDetails.creators.items.map((item) => (
-//       <ComicText>{`${item.role} - ${item.name}`}</ComicText>
-//     ))}
-//   </ComicRow>
-// ) : (
-//   " "
-// )

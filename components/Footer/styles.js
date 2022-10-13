@@ -35,12 +35,13 @@ export const Credits = styled.p`
     color: #f2f2f2;
     font-size: .8rem;
     text-transform: uppercase;
+    font-weight: 300;
 
     @media only screen and (min-width: 768px) {
       font-size: 1.4rem;
     }
 
     @media only screen and (min-width: 1200px) {
-      font-size: 1.6rem;
+      font-size: 1.2rem;
     }
 `

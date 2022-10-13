@@ -64,15 +64,3 @@ export default function Home({ data }) {
     </Layout>
   );
 }
-
-// {comics.length > 0
-//   ? comics.map((comic) =>
-//       comic.prices[0].price !== 0 &&
-//       `${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension}` !==
-//         "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available/portrait_fantastic.jpg" ? (
-//         <ComicCard comic={comic} key={comic.id} />
-//       ) : (
-//         ""
-//       )
-//     )
-//   : ""}

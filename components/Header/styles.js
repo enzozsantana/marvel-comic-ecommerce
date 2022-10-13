@@ -17,11 +17,6 @@ export const MarvelLogo = styled.img`
     width: 125px;
     height: 56px;
   }
-
-  @media only screen and (min-width: 768px) {
-    width: 125px;
-    height: 56px;
-  }
 `;
 
 export const Buttons = styled.div`
