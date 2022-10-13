@@ -14,6 +14,17 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 1.5rem;
+    padding: 1.8rem;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    gap: 2rem;
+    padding: 2.2rem;
+  }
 `;
 
 export const Logo = styled.img`
@@ -22,5 +33,14 @@ export const Logo = styled.img`
 
 export const Credits = styled.p`
     color: #f2f2f2;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 1.4rem;
+    }
+
+    @media only screen and (min-width: 1200px) {
+      font-size: 1.6rem;
+    }
 `

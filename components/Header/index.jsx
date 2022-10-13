@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Button, Buttons, Nav, CartProductsNumber } from "./styles";
+import { Button, Buttons, Nav, CartProductsNumber, MarvelLogo } from "./styles";
 import { AiOutlineHome, AiOutlineShopping } from "react-icons/ai";
 
 import Link from "next/link";
@@ -14,10 +14,8 @@ const Header = () => {
       <Nav>
         <Link href="/">
           <a>
-            <Image
+            <MarvelLogo
               src="/images/marvel-logo.png"
-              width={77}
-              height={35}
               alt="logo da Marvel"
             />
           </a>

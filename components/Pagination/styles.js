@@ -14,7 +14,11 @@ export const PaginationList = styled.ul`
 `;
 
 export const PaginationItem = styled.li`
-  margin: 0 0.4rem;
+  margin: .5rem; .4rem;
+
+  @media only screen and (min-width: 768px) {
+    margin: .5rem .6rem;
+  }
 `;
 
 export const PaginationButton = styled.button`
@@ -34,5 +38,9 @@ export const PaginationButton = styled.button`
   &.current-page {
     background: #f9f9f9;
     color: #0a0f0d;
+  }
+
+  @media only screen and (min-width: 768px) {
+    font-size: 1.4rem;
   }
 `;

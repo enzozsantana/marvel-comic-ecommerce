@@ -80,4 +80,9 @@ export const ProductAdd = styled.button`
   align-self: center;
 
   user-select: none;
+
+  @media only screen and (min-width: 768px) {
+    width: 8.5rem;
+    gap: 2rem;
+  }
 `;
