@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Logo = styled.img`
-    width: 90px;
+    width: 5rem;
 `
 
 export const Credits = styled.p`

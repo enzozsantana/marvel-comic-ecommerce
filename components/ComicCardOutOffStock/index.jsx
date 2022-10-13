@@ -14,7 +14,7 @@ const ComicCard = ({ comic }) => {
   const { addProductToCart } = useCart();
 
   function handleAddCart() {
-    addProductToCart({ ...comic, amount: 1 });
+    // addProductToCart({ ...comic, amount: 1 });
   }
 
   return (
@@ -35,12 +35,7 @@ const ComicCard = ({ comic }) => {
             <ProductName>{comic.title}</ProductName>
           )}
           {console.log(comic)}
-          <ProductAdd onClick={handleAddCart}>
-            <span>
-              <FaCartPlus />
-            </span>
-            ${`${comic.prices[0].price.toFixed(2)}`}
-          </ProductAdd>
+          <ProductAdd onClick={handleAddCart}>Out of stock</ProductAdd>
         </ProductInfos>
       </ProductCard>
     </>

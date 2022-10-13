@@ -18,6 +18,7 @@ export const PaginationItem = styled.li`
 `;
 
 export const PaginationButton = styled.button`
+  cursor: pointer;
   background-color: #0a0f0d;
   color: #f9f9f9;
   border: 1px solid #0a0f0d;

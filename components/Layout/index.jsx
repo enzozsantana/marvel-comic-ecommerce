@@ -21,16 +21,15 @@ const Layout = ({ title, children }) => {
       </Head>
 
       <Wrapper>
-        <header>
           <Header />
-        </header>
 
         <main>
             {children}
         </main>
-
-        <footer><Footer/></footer>
+        
+        <Footer/>
       </Wrapper>
+      
     </>
   );
 };

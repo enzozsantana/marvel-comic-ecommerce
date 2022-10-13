@@ -32,6 +32,7 @@ export const CartItem = styled.li`
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   height: 180px;
   width: 350px;
+  border-radius: .5rem;
 
   display: flex;
   justify-content: space-between;
@@ -103,9 +104,6 @@ export const DeleteIcon = styled.button`
   border: none;
   background: transparent;
   font-size: 2rem;
-  position: relative;
-  top: -0.5rem;
-  right: -0.3rem;
 `;
 
 export const HorizontalRow = styled.div`
@@ -136,7 +134,7 @@ export const CouponRow = styled.div`
 `;
 
 export const CouponInput = styled.input`
-  width: 60vw;
+  width: 62vw;
   height: 2rem;
   margin: 0.7rem;
   font-size: 1rem;
@@ -153,6 +151,7 @@ export const CouponAddButton = styled.button`
   border: none;
   font-size: 2em;
   margin-top: 0.4rem;
+  margin-left: .5rem;
 `;
 
 export const Totals = styled.div`

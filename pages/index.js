@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { ComicsList, Banner } from "../styles/styles";
+import { ComicsList, ComicListWrapper, Banner } from "../styles/styles";
 import ComicCard from "../components/ComicCard";
 import Layout from "../components/Layout";
 import api, { MARVEL_API_KEY } from "../services/api";
 import Pagination from "../components/Pagination/index";
 import Spinner from "../components/Spinner";
+import ComicCardOutOffStock from "../components/ComicCardOutOffStock"
 
 const limit = 20;
 
@@ -35,22 +36,22 @@ export default function Home({ data }) {
   return (
     <Layout>
       {isLoading ? (
-        <Spinner/>
+        <Spinner />
       ) : (
         <>
+          <Banner src="/images/banner.png" />
           <ComicsList>
             {comics.length > 0
               ? comics.map((comic) =>
-                  comic.prices[0].price !== 0 &&
-                  `${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension}` !==
-                    "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available/portrait_fantastic.jpg" ? (
+                  comic.prices[0].price !== 0  ? (
                     <ComicCard comic={comic} key={comic.id} />
                   ) : (
-                    ""
+                    <ComicCardOutOffStock comic={comic} key={comic.id} />
                   )
                 )
               : ""}
-            {requestInfo && (
+          </ComicsList>
+          {requestInfo && (
               <Pagination
                 limit={limit}
                 total={requestInfo.total}
@@ -58,9 +59,20 @@ export default function Home({ data }) {
                 setOffset={setOffset}
               />
             )}
-          </ComicsList>
         </>
       )}
     </Layout>
   );
 }
+
+// {comics.length > 0
+//   ? comics.map((comic) =>
+//       comic.prices[0].price !== 0 &&
+//       `${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension}` !==
+//         "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available/portrait_fantastic.jpg" ? (
+//         <ComicCard comic={comic} key={comic.id} />
+//       ) : (
+//         ""
+//       )
+//     )
+//   : ""}

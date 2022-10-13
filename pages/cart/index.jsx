@@ -30,6 +30,7 @@ import {
 } from "./styles";
 import { useCart } from "../../contexts/CartContext";
 import Layout from "../../components/Layout";
+import Footer from "../../components/Footer";
 
 function CartPage() {
   const {
@@ -52,7 +53,7 @@ function CartPage() {
   return (
     <Layout>
       <Cart>
-        <Title>My Cart</Title>
+        <Title>MY CART</Title>
         {cartItems.lenght === 0 ? (
           <p>carrinho vazio!</p>
         ) : (

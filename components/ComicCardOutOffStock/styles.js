@@ -16,6 +16,8 @@ export const ProductCard = styled.div`
   flex-direction: column;
   align-items: center;
   jusitfy-content: space-around;
+
+  filter: grayscale(100%);
 `;
 
 export const ProductImage = styled.img`
@@ -77,8 +79,5 @@ export const ProductAdd = styled.button`
 
   align-self: center;
 
-  @media only screen and (min-width: 768px) {
-    width: 8.5rem;
-    gap: 2rem;
-  }
+  user-select: none;
 `;
