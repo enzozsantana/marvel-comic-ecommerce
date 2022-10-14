@@ -8,8 +8,6 @@ import {
   ProductInfos,
   Icon,
   RarityIcon,
-  RarityLabel,
-  RarityText
 } from "./styles";
 import { FaCartPlus } from "react-icons/fa";
 import { TbStar } from "react-icons/tb";
@@ -25,14 +23,6 @@ const ComicCard = ({ comic }) => {
   return (
     <>
       <ProductCard>
-        {comic.id % 3 === 0 ? (
-          <RarityLabel>
-            <RarityIcon src="/images/rarity-icon.png" />
-            <RarityText>ULTRA RARE</RarityText>
-          </RarityLabel>
-        ) : (
-          ""
-        )}
         <Link href={`/comic/${comic.id}`}>
           <a>
             <ProductImage
@@ -47,12 +37,16 @@ const ComicCard = ({ comic }) => {
           ) : (
             <ProductName>{comic.title}</ProductName>
           )}
-          {console.log(comic)}
           <ProductAdd onClick={handleAddCart}>
             <Icon>
               <FaCartPlus />
             </Icon>
             ${`${comic.prices[0].price.toFixed(2)}`}
+            {comic.id % 3 === 0 ? (
+              <RarityIcon src="/images/rarity-icon.png" />
+            ) : (
+              ""
+            )}
           </ProductAdd>
         </ProductInfos>
       </ProductCard>

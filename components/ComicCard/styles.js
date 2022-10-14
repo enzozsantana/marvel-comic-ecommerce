@@ -10,7 +10,7 @@ export const ProductCard = styled.div`
 
   margin: 2rem 1rem;
   widht: 200px;
-  height: 23rem;
+  height: 24rem;
 
   display: flex;
   flex-direction: column;
@@ -21,7 +21,7 @@ export const ProductCard = styled.div`
 export const ProductImage = styled.img`
   transform: scale(1, 1);
   transition: transform 0.5s ease-in-out;
-  margin-top: 1rem;
+  margin-top: 2rem;
 
   width: 150px;
   height: 225px;
@@ -52,7 +52,7 @@ export const ProductName = styled.h2`
 `;
 
 export const ProductAdd = styled.button`
-  width: 6.7rem;
+  width: 8.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,17 +68,19 @@ export const ProductAdd = styled.button`
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   color: #ffffff;
   text-align: center;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   padding: 0.5rem;
   transform: scale(1, 1);
   transition: all 0.5s;
   cursor: pointer;
   margin-bottom: 0.75rem;
+  font-weight: 300;
 
   align-self: center;
   position: relative;
 
   @media only screen and (min-width: 768px) {
+    margin-top: .5rem;
     width: 8.5rem;
   }
 `;
@@ -86,28 +88,8 @@ export const ProductAdd = styled.button`
 export const Icon = styled.div`
   padding-top: .2rem;
 `
-export const RarityLabel = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: .5rem;
-  padding-top: .5rem;
-
-`
 
 export const RarityIcon = styled.img`
-  width: 1.2rem;
-`
-
-export const RarityText = styled.span`
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #D5AD6D; /*if no support for background-clip*/
-  background: -webkit-linear-gradient(transparent, transparent),
-  -webkit-linear-gradient(top, rgba(213,173,109,1) 0%, rgba(213,173,109,1) 26%, rgba(226,186,120,1) 35%, rgba(163,126,67,1) 45%, rgba(145,112,59,1) 61%, rgba(213,173,109,1) 100%);
-  background: -o-linear-gradient(transparent, transparent);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+  width: 1.4rem;
+  position: relative;
 `
