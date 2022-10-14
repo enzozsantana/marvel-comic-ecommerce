@@ -29,9 +29,12 @@ import {
   CouponDiscountValue,
   BuyButton,
   CartBanner,
+  EmptyCartImage,
+  ShopNowButton
 } from "./styles";
 import { useCart } from "../../contexts/CartContext";
 import Layout from "../../components/Layout";
+import Link from "next/link";
 
 function CartPage() {
   const {
@@ -55,82 +58,100 @@ function CartPage() {
     <Layout>
       <CartBanner src="/images/cart-banner.png" />
       <Cart>
-        <CartWrapper>
-          <CartItems>
-            {cartItems.map((item) => (
-              <>
-                <CartItem key={item.id}>
-                  <ProductImage
-                    src={`${item.thumbnail.path}/portrait_medium.${item.thumbnail.extension}`}
-                    alt={item.title}
-                  />
-                  <ProductInfosWrapper>
-                    <ProductInfos>
-                      {item.title.length >= 30 ? (
-                        <ProductTitle>
-                          {item.title.substr(0, 30)}...
-                        </ProductTitle>
-                      ) : (
-                        <ProductTitle>{item.title}</ProductTitle>
-                      )}
-                      <DeleteIcon onClick={() => deleteProduct(item.id)}>
-                        <AiOutlineDelete />
-                      </DeleteIcon>
-                    </ProductInfos>
-                    <ProductRow>
-                      <ProductAmountWrapper>
-                        <Icon
-                          onClick={() =>
-                            alterProductAmount("decrease", item.id)
-                          }
-                        >
-                          <GoDiffRemoved />
-                        </Icon>
-                        <ProductAmount>{item.amount}</ProductAmount>
-                        <Icon
-                          onClick={() =>
-                            alterProductAmount("increase", item.id)
-                          }
-                        >
-                          <GoDiffAdded />
-                        </Icon>
-                      </ProductAmountWrapper>
-                      <ProductPrice>
-                        ${(item.prices[0].price * item.amount).toFixed(2)}
-                      </ProductPrice>
-                    </ProductRow>
-                  </ProductInfosWrapper>
-                </CartItem>
-              </>
-            ))}
-          </CartItems>
-          <CoupounsAndTotalWrapper>
-            <CouponTitle>Promo Code</CouponTitle>
-            <CouponRow>
-              <CouponInput type="text" placeholder="Enter Promo Code" />
-              <CouponAddButton>
-                <SiAddthis />
-              </CouponAddButton>
-            </CouponRow>
-            <Totals>
-              <TotalsInfos>Amount</TotalsInfos>
-              <TotalsInfos>${totalPrice.toFixed(2)}</TotalsInfos>
-            </Totals>
-            <Totals>
-              <TotalsInfos>Promo Code</TotalsInfos>
-              <CouponDiscountValue>
-                -{(totalPrice * 0.1).toFixed(2)}
-              </CouponDiscountValue>
-            </Totals>
-            <HorizontalRow />
-            <Totals>
-              <TotalsInfos>Total</TotalsInfos>
-              <TotalsInfos>{(totalPrice * 0.9).toFixed(2)}</TotalsInfos>
-            </Totals>
-            <BuyButton>Buy</BuyButton>
-          </CoupounsAndTotalWrapper>
-        </CartWrapper>
-        
+        {cartItems.length === 0 ? (
+          <>
+            <EmptyCartImage src="/images/empty-cart-image.png" alt="empty cart image" />
+            <Link href="/">
+              <a>
+                <ShopNowButton>SHOP NOW</ShopNowButton>
+              </a>
+            </Link>
+          </>
+        ) : (
+          <CartWrapper>
+            <CartItems>
+              {cartItems.map((item) => (
+                <>
+                  <CartItem key={item.id}>
+                    <ProductImage
+                      src={`${item.thumbnail.path}/portrait_medium.${item.thumbnail.extension}`}
+                      alt={item.title}
+                    />
+                    <ProductInfosWrapper>
+                      <ProductInfos>
+                        {item.title.length >= 30 ? (
+                          <ProductTitle>
+                            {item.title.substr(0, 30)}...
+                          </ProductTitle>
+                        ) : (
+                          <ProductTitle>{item.title}</ProductTitle>
+                        )}
+                        <DeleteIcon onClick={() => deleteProduct(item.id)}>
+                          <AiOutlineDelete />
+                        </DeleteIcon>
+                      </ProductInfos>
+                      <ProductRow>
+                        <ProductAmountWrapper>
+                          <Icon
+                            onClick={() =>
+                              alterProductAmount("decrease", item.id)
+                            }
+                          >
+                            <GoDiffRemoved />
+                          </Icon>
+                          <ProductAmount>{item.amount}</ProductAmount>
+                          <Icon
+                            onClick={() =>
+                              alterProductAmount("increase", item.id)
+                            }
+                          >
+                            <GoDiffAdded />
+                          </Icon>
+                        </ProductAmountWrapper>
+                        <ProductPrice>
+                          ${(item.prices[0].price * item.amount).toFixed(2)}
+                        </ProductPrice>
+                      </ProductRow>
+                    </ProductInfosWrapper>
+                  </CartItem>
+                </>
+              ))}
+            </CartItems>
+            <CoupounsAndTotalWrapper>
+              <CouponTitle>Promo Code</CouponTitle>
+              <CouponRow>
+                <CouponInput
+                  type="text"
+                  placeholder="Enter Promo Code"
+                  onChange={(e) => setCouponField(e.target.value)}
+                />
+                <CouponAddButton onClick={handleCouponInsertion}>
+                  <SiAddthis />
+                </CouponAddButton>
+              </CouponRow>
+              <Totals>
+                <TotalsInfos>Amount</TotalsInfos>
+                <TotalsInfos>${totalPrice.toFixed(2)}</TotalsInfos>
+              </Totals>
+              <Totals>
+                <TotalsInfos>Promo Code</TotalsInfos>
+                <CouponDiscountValue>
+                  {isUsingCoupon ? "$" + (totalPrice * 0.1).toFixed(2) : ""}
+                </CouponDiscountValue>
+              </Totals>
+              <HorizontalRow />
+              <Totals>
+                <TotalsInfos>Total</TotalsInfos>
+                <TotalsInfos>
+                  {isUsingCoupon
+                    ? "$" + (totalPrice * 0.9).toFixed(2)
+                    : totalPrice.toFixed(2)}
+                </TotalsInfos>
+              </Totals>
+              <BuyButton>Buy</BuyButton>
+            </CoupounsAndTotalWrapper>
+          </CartWrapper>
+        )}
       </Cart>
     </Layout>
   );

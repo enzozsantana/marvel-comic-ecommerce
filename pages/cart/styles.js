@@ -4,7 +4,7 @@ export const Cart = styled.div`
   background color: #f2f2f2;
   width: 100%;
   height: auto;
-  min-height: 80vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -156,7 +156,7 @@ export const DeleteIcon = styled.button`
   @media only screen and (min-width: 1200px) {
     position: relative;
     top: -.5rem;
-    left: 7.6rem;
+    left: 4.2rem;
   }
 `;
 
@@ -220,6 +220,7 @@ export const CouponInput = styled.input`
 `;
 
 export const CouponAddButton = styled.button`
+  cursor: pointer;
   border: none;
   font-size: 2em;
   margin-top: 0.4rem;
@@ -227,6 +228,10 @@ export const CouponAddButton = styled.button`
 
   @media only screen and (min-width: 768px) {
     margin-left: 0;
+  }
+
+  &:hover {
+    color: #f02d34;
   }
 `;
 
@@ -259,4 +264,52 @@ export const BuyButton = styled.button`
   width: 80%;
   height: 2.2rem;
   margin: 2rem auto;
+  cursor: pointer;
 `;
+
+export const EmptyCartImage = styled.img`
+  width: 80%;
+
+  @media only screen and (min-width: 1200px) {
+    width: 60%;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    width: 40%;
+  }
+`
+
+export const ShopNowButton = styled.button`
+  margin-top: 1rem;
+  cursor: pointer;
+  font-size:15px;
+  font-family:Arial;
+  width:140px;
+  height:34px;
+  border-width:1px;
+  color:#fff;
+  border-color:#d02718;
+  border-top-left-radius:6px;
+  border-top-right-radius:6px;
+  border-bottom-left-radius:6px;
+  border-bottom-right-radius:6px;
+  box-shadow:inset 0px 1px 0px 0px #f5978e;
+  text-shadow:inset 0px 1px 0px #810e05;
+  background:linear-gradient(#f24537, #c62d1f);
+  &:hover {
+    background: linear-gradient(#c62d1f, #f24537);
+  }
+
+  @media only screen and (min-width: 768px) {
+    font-size: 1.8rem;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 1.4rem;
+  }
+
+  @media only screen and (min-width: 1480px) {
+    font-size: 1rem;
+  }
+
+`
