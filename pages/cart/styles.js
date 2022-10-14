@@ -4,7 +4,7 @@ export const Cart = styled.div`
   background color: #f2f2f2;
   width: 100%;
   height: auto;
-  height: 80vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -148,13 +148,14 @@ export const DeleteIcon = styled.button`
   background: transparent;
   font-size: 2rem;
   cursor: pointer;
+  position: relative;
+  top: -.7rem;
 
   &hover {
     color: #f02d34;
   }
 
   @media only screen and (min-width: 1200px) {
-    position: relative;
     top: -.5rem;
     left: 4.2rem;
   }
@@ -167,7 +168,6 @@ export const HorizontalRow = styled.span`
 `;
 
 export const CoupounsAndTotalWrapper = styled.div`
-  align-self: flex-start;
   margin: 1.5rem 0 2.5rem 0;
   width 90vw;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -176,6 +176,9 @@ export const CoupounsAndTotalWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
+  @media only screen and (min-width: 768px) {
+    align-self: flex-start;
+  }
   
   @media only screen and (min-width: 768px) {
     width: 100%;

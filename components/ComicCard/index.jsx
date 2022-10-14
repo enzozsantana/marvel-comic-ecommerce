@@ -6,9 +6,13 @@ import {
   ProductImage,
   ProductName,
   ProductInfos,
-  Icon
+  Icon,
+  RarityIcon,
+  RarityLabel,
+  RarityText
 } from "./styles";
 import { FaCartPlus } from "react-icons/fa";
+import { TbStar } from "react-icons/tb";
 import { useCart } from "../../contexts/CartContext";
 
 const ComicCard = ({ comic }) => {
@@ -21,6 +25,14 @@ const ComicCard = ({ comic }) => {
   return (
     <>
       <ProductCard>
+        {comic.id % 3 === 0 ? (
+          <RarityLabel>
+            <RarityIcon src="/images/rarity-icon.png" />
+            <RarityText>ULTRA RARE</RarityText>
+          </RarityLabel>
+        ) : (
+          ""
+        )}
         <Link href={`/comic/${comic.id}`}>
           <a>
             <ProductImage
